@@ -1,0 +1,98 @@
+openapi: 3.0.0
+info:
+  title: Dictionary
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://dictionaryapi2.herokuapp.com
+  variables: {}
+- url: http://example.com
+  variables: {}
+paths:
+  /fetchWords:
+    get:
+      tags:
+      - Dictionary
+      summary: Fetch Word
+      operationId: FetchWord
+      parameters:
+      - name: word
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: print
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://dictionaryapi2.herokuapp.com
+        variables: {}
+  /addWord:
+    post:
+      tags:
+      - Dictionary
+      summary: Add Word
+      operationId: AddWord
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddWordRequest'
+            example:
+              word: insert
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://dictionaryapi2.herokuapp.com
+        variables: {}
+  /completeDictionary:
+    get:
+      tags:
+      - Dictionary
+      summary: Complete Dictionary
+      operationId: CompleteDictionary
+      parameters:
+      - name: word
+        in: query
+        description: ''
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: print
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://dictionaryapi2.herokuapp.com
+        variables: {}
+components:
+  schemas:
+    AddWordRequest:
+      title: AddWordRequest
+      required:
+      - word
+      type: object
+      properties:
+        word:
+          type: string
+      example:
+        word: insert
+tags:
+
+- name: Dictionary
+  description: ''
