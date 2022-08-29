@@ -28,7 +28,8 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
   .catch((err) => console.log(err));
 
 app.get('/', (req, res) => {
-  res.send("<a href='api-docs'><button>Dictionary API Testing</button></a>")
+  res.redirect("https://dictionaryapi2.herokuapp.com/api-docs")
+//   res.send("<a href='api-docs'><button>Dictionary API Testing</button></a>")
 })
 
 let port = process.env.PORT || 3000
